@@ -26,29 +26,38 @@ public class PruebaVehiculo {
         String Smodelo, texto;
         boolean sigue=true;
         Vehiculo aCoche[] = new Vehiculo[10];
-        int conta = 0;    
+        int conta = 0;
+        Vehiculo coche=null;
        
-        while(sigue=true){
-            Vehiculo coche = new Vehiculo();
-            System.out.println("Introduce modelo");
-            Smodelo = tec.readLine();
+        System.out.println("Introduce modelo");
+        Smodelo = tec.readLine();
+        
+        while(Smodelo.compareToIgnoreCase("fin")!=0){
             
-            if(Smodelo.equalsIgnoreCase("fin")){
-                System.out.println("Hemos concluido");
-                sigue=false;
-                coche.visualizar(aCoche, conta);
-            }else{
                 coche = new Vehiculo(Smodelo);
                 System.out.println("Introducir potencia");
                 texto = tec.readLine();
                 coche.setPotencia(Double.parseDouble(texto));
-                System.out.println("¿Traccion a las 4 ruedas? (si=True y no=False)");
+                System.out.println("¿Traccion a las 4 ruedas?"); 
                 texto = tec.readLine();
-                coche.setTraccion(Boolean.parseBoolean(texto));
+                if(texto.equals("si")){
+                    coche.setTraccion(true);
+                }else{
+                    coche.setTraccion(false);
+                }
                 aCoche[conta]= coche;
                 conta = conta+1;
+                System.out.println("Introduce modelo");
+                Smodelo = tec.readLine();
             }
-        }   
+                System.out.println("Hemos concluido");
+                sigue=false;
+                
+                for(int i=0; i<aCoche.length && aCoche[i]!=null;i++){
+                    coche = aCoche[i];
+                    coche.visualizar();
+                }
+        }
         
         
         
@@ -56,4 +65,4 @@ public class PruebaVehiculo {
         
     }
     
-}
+

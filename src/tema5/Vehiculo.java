@@ -25,22 +25,16 @@ public class Vehiculo {
     };
 
     
-    void visualizar(Vehiculo array[],int conta){
-        
-        for(int i=0; i<array.length; i++){
-            System.out.println("\n Modelo" + array[i].modelo);
-            System.out.println("Potencia" + array[i].potencia);
+    void visualizar(){
+            System.out.println("\nModelo: " + modelo);
+            System.out.println("Potencia: " + potencia);
                 if(traccion==true){
                     System.out.println("Tracción: Total");
                 }else{
                     System.out.println("Tracción: 2 Ruedas");
                     }
         }
-   
-    }
-    
-    
-    
+
     
     /**
      * @return the modelo
