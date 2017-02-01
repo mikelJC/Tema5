@@ -23,11 +23,17 @@ public class Correo {
     
     public Correo(){};
     
-    public Correo(String o, String d,String a, String m){};
+    public Correo(String o, String d,String a, String m){
+        
+        origen = o;
+        destino = d;
+        asunto = a;
+        mensaje = m;
+                
+    };
     
     public String el_Origen(){
         String or="";
-        
         return or;
     }
 
