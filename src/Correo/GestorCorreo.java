@@ -32,6 +32,19 @@ public class GestorCorreo {
         int respuesta;
         int r;
 
+        Correo correo1 = new Correo ("c","asd","asd","asd");
+        Correo correo2 = new Correo ("a","asd","asd","asd");
+        Correo correo3 = new Correo ("f","asd","asd","asd");
+        Correo correo4 = new Correo ("b","asd","asd","asd");
+        Correo correo5 = new Correo ("d","asd","asd","asd");
+        
+        recibidos.añadirC(correo1);
+        recibidos.añadirC(correo2);
+        recibidos.añadirC(correo3);
+        recibidos.añadirC(correo4);
+        recibidos.añadirC(correo5);
+        
+        
         do {
             System.out.println("\n******MENU PRINCIPAL****** \n"
                     + "      " + "1. Mostrar correos\n"
@@ -44,13 +57,16 @@ public class GestorCorreo {
 
             switch (respuesta) {
                 case 1:
-
+                    
                     System.out.println("******Menu secundario******" + "      " + "1. Recibidos\n" + "      " + "2. Eliminados\n" + "Elige una opción:");
                     r = Integer.parseInt(tec.readLine());
-
+                    
                     if (r == 1) {
+                        
+                        recibidos.ordenarC();
                         recibidos.mostrarC();
                     } else {
+                        eliminados.ordenarC();
                         eliminados.mostrarC();
                     }
                     break;

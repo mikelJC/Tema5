@@ -16,6 +16,8 @@ public class CarpetaCorreo {
     ;
 
         Correo aCorreo[] = new Correo[40];
+        
+
 
     public void mostrarC() {
         String cadena;
@@ -56,38 +58,23 @@ public class CarpetaCorreo {
 
     public void ordenarC() {
         int termi=1;
+        Correo intercambio = new Correo();
         
-        for(int i=0; i<aCorreo.length&&termi==1; i++){
-            
-            for(int j=0; j<aCorreo.length; j++){
-                aCorreo[i].getOrigen().compareToIgnoreCase(aCorreo[j].getOrigen())
-                if()
+        for(int i=0; i<aCorreo.length&&termi==1&&aCorreo[i]!=null; i++){
+            termi=0;
+            for(int j=0; j<aCorreo.length&&aCorreo[j]!=null; j++){
+                if(aCorreo[i].getOrigen().compareToIgnoreCase(aCorreo[j].getOrigen())<0){
+                   intercambio = aCorreo[i];
+                   aCorreo[i]=aCorreo[j];
+                   aCorreo[j]=intercambio;
+                   termi=1;
                 }
             }
-            
         }
-        
-        
-        //+0 el primero es mayor, -0 el priemro es menor, 0 son iguales
-        
-        /**
-        int i, j;
-        boolean sw = false;
-        
-        for (i = 0; i < v.length && !sw; i++) {
-            sw = true;
-            for (j = 0; j < v.length - 1; j++) {
-                if (v[j] > v[j + 1]) {
-                    int may = v[j];
-                    v[j] = v[j + 1];
-                    v[j + 1] = may;
-                    sw = false;
-                }
-            }
-
-        }
-        * */
+   
     }
+    
+   
 
     public Correo busca(String orig) {
 
