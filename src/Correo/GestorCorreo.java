@@ -16,22 +16,26 @@ import java.io.InputStreamReader;
  */
 public class GestorCorreo {
 
-    static BufferedReader tec = new BufferedReader(new InputStreamReader(System.in));
-
-    public static void main(String[] argm) throws IOException {
-
-        menuPrincipal();
-
-    }
-
-    static public void menuPrincipal() throws IOException {
-
+        
         CarpetaCorreo recibidos = new CarpetaCorreo();
         CarpetaCorreo eliminados = new CarpetaCorreo();
 
-        int respuesta;
-        int r;
+    public static void main(String[] argm) throws IOException {
 
+       new GestorCorreo();
+
+    }
+
+       
+    public GestorCorreo(){
+        menuprincipal();
+    }
+
+
+    
+    public void menuprincipal(){
+        BufferedReader tec = new BufferedReader(new InputStreamReader(System.in));
+        
         Correo correo1 = new Correo ("c","asd","asd","asd");
         Correo correo2 = new Correo ("a","asd","asd","asd");
         Correo correo3 = new Correo ("f","asd","asd","asd");
@@ -45,6 +49,10 @@ public class GestorCorreo {
         recibidos.añadirC(correo5);
         
         
+        int respuesta;
+        int r;
+
+        try {
         do {
             System.out.println("\n******MENU PRINCIPAL****** \n"
                     + "      " + "1. Mostrar correos\n"
@@ -164,6 +172,25 @@ public class GestorCorreo {
                     break;
             }
         } while (respuesta != 0);
+        }catch (IOException ex){System.err.println("error de entrada"+ex.getMessage());}
     }
-
+    
+    
+    public String comprobarcorreo(String email){
+        
+        if(email.startsWith("@")||email.endsWith("@") && email.startsWith(".")||email.endsWith(".")){
+            System.err.println("LAS LIAO PARDA, introduce bien el e-mail"+ email +", melón!");
+        }else{
+            
+        
+        }
+        
+        
+        
+        return "";
+                
+    }
+    
+    
+    
 }

@@ -13,7 +13,7 @@ public class CarpetaCorreo {
 
     public CarpetaCorreo() {
     }
-    ;
+    
 
         Correo aCorreo[] = new Correo[40];
         
