@@ -88,8 +88,10 @@ public class GestorCorreo {
 
                     System.out.println("Introduce Origen");
                     o = tec.readLine();
+                    o= comprobarcorreo2(o);
                     System.out.println("Introduce Destino");
                     d = tec.readLine();
+                    d = comprobarcorreo2(d);
                     System.out.println("Introduce Asunto");
                     a = tec.readLine();
                     System.out.println("Introduce Mensaje");
@@ -176,19 +178,50 @@ public class GestorCorreo {
     }
     
     
-    public String comprobarcorreo(String email){
+  
+    
+ 
+    public String comprobarcorreo2(String email) throws IOException{
+        BufferedReader tec = new BufferedReader(new InputStreamReader(System.in));
         
-        if(email.startsWith("@")||email.endsWith("@") && email.startsWith(".")||email.endsWith(".")){
-            System.err.println("LAS LIAO PARDA, introduce bien el e-mail"+ email +", melón!");
-        }else{
-            
+        String Svalidado=email;
         
-        }
+        boolean arroba=false;
+        boolean punto=false;
+        int posarroba;
+        int pospunto;
         
-        
-        
-        return "";
+       
+            posarroba=email.indexOf("@");
+            pospunto=email.indexOf(".");
+         
+            while(arroba!=true){
+                posarroba=email.indexOf("@");
+                pospunto=email.indexOf(".");
                 
+                if( email.startsWith("@")==false && posarroba!=-1 && email.endsWith("@")==false && email.charAt(posarroba+1)!='.'){
+                    arroba=true;
+                    System.err.println("he entrado @!!!!");
+                }else{
+                    System.err.println("correo (arroba mal colocado o no existe) mal introducido");
+                    Svalidado=tec.readLine();
+                }
+            }
+            
+            
+            while(punto!=true){
+                pospunto=email.indexOf(".");
+                
+                if(pospunto!=0 && pospunto!=-1 && pospunto!=email.length()-1 && (pospunto==email.length()-4 && pospunto==email.length()-3)) {
+                        punto=true;
+                        System.err.println("he entrado .!!!!");
+                }else{
+                        System.err.println("correo (punto mal colocado o no existe) mal introducido");
+                        Svalidado=tec.readLine();
+                    }
+
+                }
+                return Svalidado;
     }
     
     
