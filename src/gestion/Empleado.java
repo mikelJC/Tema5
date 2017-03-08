@@ -17,8 +17,7 @@ public class Empleado {
     private int fingreso;
     private float sueldob;
     
-    
-    
+
     public Empleado(){};
     
     public Empleado(String n,String d,char e,int fi,float sb){
@@ -37,12 +36,7 @@ public class Empleado {
         if(resultado<=0){return 0;}else{return resultado;}  
     }
     
-    public void aumentarsueldo(int porcentaje){
-        float aumento;
-        
-        aumento =  sueldob*porcentaje/100;
-        sueldob=sueldob+aumento;
-    }
+
     
     @Override
     public String toString(){
@@ -54,7 +48,9 @@ public class Empleado {
     }
     
     
-    
+    public String toString2(){
+          return (nombre+ "," +dni+"," +estado+ "," +fingreso+ "," + sueldob+";");
+    }
     
     
     

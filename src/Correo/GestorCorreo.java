@@ -184,14 +184,43 @@ public class GestorCorreo {
     public String comprobarcorreo2(String email) throws IOException{
         BufferedReader tec = new BufferedReader(new InputStreamReader(System.in));
         
+        boolean sw=false;
         String Svalidado=email;
+        
+        
+        
+        
+        
+        
+        while(sw!=true){
+             if(email.isEmpty()==false && email.startsWith("@")==false && email.indexOf("@")!=-1 && email.endsWith("@")==false && (email.indexOf("@")+1)!='.'){
+                    if(email.startsWith(".")==false && email.indexOf(".")!=-1 && email.indexOf(".")!=email.length()-1 && (email.indexOf(".")==email.length()-4 || email.indexOf(".")==email.length()-3)){
+                        sw=true;  
+                    }else{
+                        System.err.println("punto mal colodado");
+                        System.out.println("vuelve a introducir uno nuevo correcto");
+                        email = tec.readLine();
+                        Svalidado= email;
+                    }
+             }else{
+                 System.err.println("arroba mal colodado");
+                 System.out.println("vuelve a introducir uno nuevo correcto");
+                 email = tec.readLine();
+             }
+        }
+        
+        
+        
+        /**
+        String Svalidado=email;
+        
         
         boolean arroba=false;
         boolean punto=false;
         int posarroba;
         int pospunto;
         
-       
+      
             posarroba=email.indexOf("@");
             pospunto=email.indexOf(".");
          
@@ -212,7 +241,7 @@ public class GestorCorreo {
             while(punto!=true){
                 pospunto=email.indexOf(".");
                 
-                if(pospunto!=0 && pospunto!=-1 && pospunto!=email.length()-1 && (pospunto==email.length()-4 && pospunto==email.length()-3)) {
+                if(pospunto!=0 && pospunto!=-1 && pospunto!=email.length()-1 && (pospunto==email.length()-4 || pospunto==email.length()-3)) {
                         punto=true;
                         System.err.println("he entrado .!!!!");
                 }else{
@@ -222,6 +251,10 @@ public class GestorCorreo {
 
                 }
                 return Svalidado;
+                */
+        
+        
+        return Svalidado;
     }
     
     
