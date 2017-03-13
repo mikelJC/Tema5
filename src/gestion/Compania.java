@@ -85,7 +85,7 @@ public class Compania {
     public void aumentarsueldo(int porcentaje, int i) {
 
         float aumento;
-
+        
         if (aCompania[0] == null) {
             System.out.println("No existen empleados");
         } else {
@@ -95,6 +95,8 @@ public class Compania {
     }
 
     public void mostrarempleados() {
+        
+        System.out.println(aCompania[0]);
 
         if (aCompania[0] == null) {
             System.out.println("No existen empleados");

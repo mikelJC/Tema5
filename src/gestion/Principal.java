@@ -37,9 +37,9 @@ public class Principal {
     public void menuprincipal(){
         BufferedReader tec = new BufferedReader(new InputStreamReader(System.in));
       
-       // Empleado emp1 = new Empleado("Pepe","0123456789A",'C',1980,1583.24f);
-       // Empleado emp2 = new Empleado("Juan","0123456789B",'S',1960,2000);
-       // Empleado emp3 = new Empleado("Antonio","0123456789C",'C',1990,1023.84f);
+        //Empleado emp1 = new Empleado("Pepe","0123456789A",'C',1980,1583.24f);
+        //Empleado emp2 = new Empleado("Juan","0123456789B",'S',1960,2000);
+        //Empleado emp3 = new Empleado("Antonio","0123456789C",'C',1990,1023.84f);
         
         
         
@@ -50,9 +50,9 @@ public class Principal {
                 Compania comp = new Compania();
         
                 
-       // comp.añadirEmpleado(emp1);
-       // comp.añadirEmpleado(emp2);
-       // comp.añadirEmpleado(emp3);
+        //comp.añadirEmpleado(emp1);
+        //comp.añadirEmpleado(emp2);
+        //comp.añadirEmpleado(emp3);
                 
                 
        
@@ -168,7 +168,7 @@ public class Principal {
             FileReader flE = new FileReader("archivo.txt");
             BufferedReader fE = new BufferedReader(flE);
             
-            Empleado emp = new Empleado();
+            Empleado empmuestra = new Empleado();
             Compania comp = new Compania();
             
             
@@ -178,53 +178,49 @@ public class Principal {
 
 
 
-               // while (texto != null) {
+               while (texto != null) {
 
-                    posi = texto.indexOf(","); //4
-                    emp.setNombre(texto.substring(0, posi));
-                    posiant=posi+1;//5
+                    posi = texto.indexOf(",");
+                    empmuestra.setNombre(texto.substring(0, posi));
+                    posiant=posi+1;
 
-                    System.out.println(emp.getNombre()); 
+                    System.out.println(empmuestra.getNombre()); 
                     
-                    posi = texto.indexOf(",", posiant); //15
-                    emp.setDni(texto.substring(posiant, posi)); //5 - 15
-                    posiant=posi+1; //16
+                    posi = texto.indexOf(",", posiant);
+                    empmuestra.setDni(texto.substring(posiant, posi)); 
+                    posiant=posi+1; 
                     
-                    System.out.println(emp.getDni());
+                    System.out.println(empmuestra.getDni());
+                    
+                    posi = texto.indexOf(",", posiant);
+                    empmuestra.setEstado(texto.charAt(posiant));
+                    posiant = posi+1;
+  
+                    System.out.println(empmuestra.getEstado());
 
-                    emp.setEstado(texto.charAt(posiant));
-                    posiant=posi+1; //17
                     
-                    System.out.println(emp.getEstado());
+                    posi = texto.indexOf(",", posiant);
+                    empmuestra.setFingreso(Integer.parseInt(texto.substring(posiant, posi)));
+                    System.out.println(empmuestra.getFingreso());
+                    
+                    
+                    System.out.println(posi+" "+posiant);
+                    
+                    posiant= posi+1;
+                    empmuestra.setSueldob(Float.parseFloat(texto.substring(posiant)));
+                    System.out.println(empmuestra.getSueldob());
+                    
+
+                    comp.añadirEmpleado(empmuestra);
+                    
 
                     
                     
-                    
-                    
-                    
-                    posi = texto.indexOf(",", posiant+1);
-
-                    System.out.println(posi + " "+ posiant);
-                    
-                    
-                    emp.setFingreso(Integer.parseInt(texto.substring(posiant+2,23)));
-                    System.out.println(emp.getFingreso());
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    comp.añadirEmpleado(emp);
-
                     texto = fE.readLine();
-              //}
+              }
 
                 fE.close();
-                
-
+     
         } catch (IOException e) {
             System.out.println("Error en el fichero");
         }

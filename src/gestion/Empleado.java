@@ -49,7 +49,7 @@ public class Empleado {
     
     
     public String toString2(){
-          return (nombre+ "," +dni+"," +estado+ "," +fingreso+ "," + sueldob+";");
+          return (nombre+ "," +dni+"," +estado+ "," +fingreso+ "," + sueldob);
     }
     
     
