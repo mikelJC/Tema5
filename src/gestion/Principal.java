@@ -167,40 +167,60 @@ public class Principal {
         try {
             FileReader flE = new FileReader("archivo.txt");
             BufferedReader fE = new BufferedReader(flE);
-            texto = fE.readLine();
             
-            System.out.println(texto);
-
             Empleado emp = new Empleado();
             Compania comp = new Compania();
+            
+            
+            texto = fE.readLine();
+            
+            
 
-                while (texto != null) {
 
-                    posi = texto.indexOf(",");
+
+               // while (texto != null) {
+
+                    posi = texto.indexOf(","); //4
                     emp.setNombre(texto.substring(0, posi));
-                    posiant=posi;
-                    
-                    posi = texto.indexOf(",", posi);
-                    emp.setDni(texto.substring(posiant, posi));
-                    posiant=posi;
-                    
-                    posi = texto.indexOf(",", posi);
-                    emp.setEstado(texto.charAt(posi-1));
-                    posiant=posi;
-                    
-                    posi = texto.indexOf(",", posi);
-                    emp.setFingreso(Integer.parseInt(texto.substring(posiant, posi)));        
-                    posiant=posi;    
-                            
-                    
-                    posi = texto.indexOf(";");
-                    emp.setSueldob(Integer.parseInt(texto.substring(posiant, posi)));
+                    posiant=posi+1;//5
 
+                    System.out.println(emp.getNombre()); 
+                    
+                    posi = texto.indexOf(",", posiant); //15
+                    emp.setDni(texto.substring(posiant, posi)); //5 - 15
+                    posiant=posi+1; //16
+                    
+                    System.out.println(emp.getDni());
+
+                    emp.setEstado(texto.charAt(posiant));
+                    posiant=posi+1; //17
+                    
+                    System.out.println(emp.getEstado());
+
+                    
+                    
+                    
+                    
+                    
+                    posi = texto.indexOf(",", posiant+1);
+
+                    System.out.println(posi + " "+ posiant);
+                    
+                    
+                    emp.setFingreso(Integer.parseInt(texto.substring(posiant+2,23)));
+                    System.out.println(emp.getFingreso());
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     comp.añadirEmpleado(emp);
 
                     texto = fE.readLine();
-                }
+              //}
 
                 fE.close();
                 
