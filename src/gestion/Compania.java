@@ -96,15 +96,25 @@ public class Compania {
 
     public void mostrarempleados() {
         
-        System.out.println(aCompania[0]);
+        if (aCompania[0] == null) {
+            System.out.println("No existen empleados");
+        } else {
+        for (int i = 0; i < aCompania.length && aCompania[i]!=null ; i++) {
+                System.out.println(aCompania[i]);
+            }
+        
+        }
 
+        
+        /*
         if (aCompania[0] == null) {
             System.out.println("No existen empleados");
         } else {
             for (int i = 0; i < aCompania.length && aCompania != null; i++) {
-                aCompania[i].toString();
+                System.out.println(aCompania[i]);
             }
         }
+        */
     }
 
     public void ordenarempleados() {

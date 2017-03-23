@@ -19,7 +19,8 @@ import java.io.InputStreamReader;
  * @author AlumMati
  */
 public class Principal {
-     
+     Compania comp = new Compania();
+     Empleado empmuestra =new Empleado();
     
     public static void main(String[] argm){
     
@@ -47,13 +48,7 @@ public class Principal {
                 int respuesta;
                 int r;
                 Empleado emp = new Empleado();
-                Compania comp = new Compania();
-        
-                
-        //comp.añadirEmpleado(emp1);
-        //comp.añadirEmpleado(emp2);
-        //comp.añadirEmpleado(emp3);
-                
+
                 
        
        
@@ -131,7 +126,8 @@ public class Principal {
                 case 5:
                     
                  
-                    comp.mostrarempleados();
+                comp.mostrarempleados();
+                    
 
                     break;    
                     
@@ -168,59 +164,53 @@ public class Principal {
             FileReader flE = new FileReader("archivo.txt");
             BufferedReader fE = new BufferedReader(flE);
             
-            Empleado empmuestra = new Empleado();
-            Compania comp = new Compania();
+            ;
+            
             
             
             texto = fE.readLine();
             
-            
-
-
 
                while (texto != null) {
-
+                   
+                   
                     posi = texto.indexOf(",");
                     empmuestra.setNombre(texto.substring(0, posi));
                     posiant=posi+1;
 
-                    System.out.println(empmuestra.getNombre()); 
+                     
                     
                     posi = texto.indexOf(",", posiant);
                     empmuestra.setDni(texto.substring(posiant, posi)); 
                     posiant=posi+1; 
                     
-                    System.out.println(empmuestra.getDni());
+                    
                     
                     posi = texto.indexOf(",", posiant);
                     empmuestra.setEstado(texto.charAt(posiant));
                     posiant = posi+1;
   
-                    System.out.println(empmuestra.getEstado());
+                    
 
                     
                     posi = texto.indexOf(",", posiant);
                     empmuestra.setFingreso(Integer.parseInt(texto.substring(posiant, posi)));
-                    System.out.println(empmuestra.getFingreso());
                     
-                    
-                    System.out.println(posi+" "+posiant);
-                    
+
                     posiant= posi+1;
                     empmuestra.setSueldob(Float.parseFloat(texto.substring(posiant)));
-                    System.out.println(empmuestra.getSueldob());
                     
 
                     comp.añadirEmpleado(empmuestra);
                     
 
-                    
-                    
                     texto = fE.readLine();
               }
-
+               
+                
                 fE.close();
-     
+                
+                
         } catch (IOException e) {
             System.out.println("Error en el fichero");
         }
